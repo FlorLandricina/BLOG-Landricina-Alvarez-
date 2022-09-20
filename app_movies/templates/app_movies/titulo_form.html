@@ -1,0 +1,19 @@
+{% extends "app_movies/plantilla_base.html" %}
+
+{% block contenido_base %}
+<br>
+<br>
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <br>
+  <input type="submit" value="Enviar" />
+</form>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+{% endblock contenido_base %}

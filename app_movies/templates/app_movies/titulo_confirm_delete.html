@@ -1,0 +1,28 @@
+{% extends "app_movies/plantilla_base.html" %}
+
+{% block contenido_base %}
+<br>
+<br>
+<br>
+<span>Estas por eliminar {{object}} de la biblioteca cinematografica</span>
+<br>
+<br>
+<br>
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <input type="submit" value="Confirmar" />
+</form>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+{% endblock contenido_base %}

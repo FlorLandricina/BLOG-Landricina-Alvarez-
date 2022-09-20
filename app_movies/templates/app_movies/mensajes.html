@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Libros_Lista</title>
+</head>
+<body>
+<div style="padding: 3em;">
+    <ul class="list-group">
+    {% for item in mensajes %}
+        <li class="list-group-item list-group-item-info">
+            {{item.user}} ({{item.fecha_creacion}}): {{item.mensaje}}
+        </li>
+    {% endfor %}
+    </ul>
+    <form method="POST">
+        {% csrf_token %}
+        <table class="table table-striped">
+            {{mensajeForm.as_table}}
+        </table>
+        <br>
+        <button class="btn btn-dark" type="submit">Enviar</button>
+    </form>
+    <br>
+    <a href="{% url 'inicio' %}">Regresar</button></a>
+</div>
+</body>
+</html>

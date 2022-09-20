@@ -1,0 +1,13 @@
+{% extends "app_movies/plantilla_base.html" %}
+
+{% block contenido_base %}
+
+<form action="{% url 'busqueda_titulo' %}" method='GET'>
+  {% csrf_token %}
+  <span>Titulo:
+    <input type="chardfield" name="titulo"> 
+  </span>
+  <input type="submit" value="Buscar" />
+</form>
+
+{% endblock contenido_base %}

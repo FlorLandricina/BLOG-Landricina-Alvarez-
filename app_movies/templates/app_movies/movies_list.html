@@ -1,0 +1,41 @@
+{% extends "app_movies/plantilla_base.html" %}
+
+{% block contenido_base %}
+<h2>Biblioteca de Peliculas</h2>
+
+<a href="{% url 'crear_peliculas' %}">Crear Pelicula</a>
+<br>
+<a href="{% url 'busqueda_titulo' %}">Buscar Pelicula</a>
+
+    <br>
+        <div class="container mt-5">
+        <table class="table" center>
+            <thead >
+                <tr>
+                    <th>Titulo</th>
+                    <th>Año de Lanzamiento</th>
+                    <th>Rating</th>
+                    <th>Genero</th>
+                    <th>Editar</th>
+                    <th>Eliminar</th>                     
+                </tr>
+            </thead>
+            <tbody>
+                    {% for titulo in object_list %}
+                    <tr>
+                    <th>{{titulo.nombre}}</th>
+                    <th>{{titulo.ano_lanzamiento}}</th>
+                    <th>{{titulo.rating}}</th>
+                    <th>{{titulo.genero}}</th>
+                    <td><a href="{% url 'editar_peliculas' titulo.id %}">Editar</a></td>
+                    <td><a href="{% url 'eliminar_peliculas' titulo.id %}">Eliminar</a></td>
+                    </tr>
+                    {% endfor %}
+
+                    
+
+            </tbody>
+        </table>
+<br>
+
+{% endblock contenido_base %}
