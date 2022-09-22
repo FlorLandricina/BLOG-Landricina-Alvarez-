@@ -24,12 +24,12 @@ class TituloListView(LoginRequiredMixin, ListView):
 
 class TituloCreateView(LoginRequiredMixin, CreateView):
     model = Titulo
-    fields = ['nombre','ano_lanzamiento','rating','genero']
+    fields = ['nombre','ano_lanzamiento','rating','genero','cuerpo']
     success_url = reverse_lazy('peliculas')
 
 class TituloUpdateView(LoginRequiredMixin, UpdateView):
     model = Titulo
-    fields = ['nombre','ano_lanzamiento','rating','genero']
+    fields = ['nombre','ano_lanzamiento','rating','genero','cuerpo']
     success_url = reverse_lazy('peliculas')
 
 class TituloDeleteView(LoginRequiredMixin, DeleteView):
@@ -40,7 +40,7 @@ class TituloDeleteView(LoginRequiredMixin, DeleteView):
 def busqueda_titulo(request):
     return render(request, "app_movies/form_busqueda_titulo.html")
 
-# no funciona!!!!!!!!!!!!!!!!!!!!!!!
+
 def buscar(request):
     if request.GET["titulo"]:
         titulo = request.GET["titulo"]
@@ -118,7 +118,7 @@ def agregar_avatar(request):
     return render(request, "app_movies/form_avatar.html", {"form":form})
 
 
-@login_required
+
 def about_me(request):
     return render(request, 'app_movies/about.html')
 
@@ -136,6 +136,6 @@ def mensajes (request):
             mensaje.save()
             return redirect('mensajes')
         else:
-            return render(request, 'app_movies/mensajes.html', {"mensajeForm": contenido_mensaje,"mensaje": mensaje})
+            return render(request, 'app_movies/mensajes.html', {"mensajeForm": contenido_mensaje,"mensajes": mensaje})
     else:
-        return render(request, 'app_movies/mensajes.html', {"mensajeForm": mensajeForm,  "mensaje": mensaje})
+        return render(request, 'app_movies/mensajes.html', {"mensajeForm": mensajeForm,  "mensajes": mensaje})

@@ -26,8 +26,9 @@
             <div class="container">
                 <a class="navbar-brand" href="{% url 'inicio' %}">Inicio</a>
                 <a class="navbar-brand" href="{% url 'peliculas' %}">Películas</a>
-                <a class="navbar-brand" href="{% url 'about_us' %}">About us</a>
                 <a class="navbar-brand" href="{% url 'mensajes' %}">Mensajes</a>
+                <a class="navbar-brand" href="{% url 'about_us' %}">About us</a>
+                
                                 
                 {% if user.is_authenticated %}
                 <div class="dropdown">
@@ -59,7 +60,7 @@
         {% endblock contenido_base %}
         </section>
 
-
+        
 
         <!-- Footer-->
         <footer class="footer bg-light">

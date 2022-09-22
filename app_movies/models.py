@@ -9,7 +9,8 @@ class Titulo(models.Model):
     ano_lanzamiento = models.DateField()
     rating = models.ForeignKey('Rating', on_delete=models.CASCADE, null=True)
     genero = models.ForeignKey('Genero', on_delete=models.CASCADE, null=True)
-
+    cuerpo = models.TextField(max_length=1000, null=True)
+    
     def __str__(self):
         return f"{self.nombre}"
 
@@ -32,7 +33,6 @@ class Avatar(models.Model):
 
     def __str__(self):
         return f"Imagen de: {self.user}"
-
 
 class Mensajes(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)

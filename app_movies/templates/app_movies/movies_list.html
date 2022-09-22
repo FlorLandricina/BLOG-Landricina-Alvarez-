@@ -5,7 +5,7 @@
 
 <a href="{% url 'crear_peliculas' %}">Crear Pelicula</a>
 <br>
-<a href="{% url 'busqueda_titulo' %}">Buscar Pelicula</a>
+<a href="{% url 'busqueda_titulo_form' %}">Buscar Pelicula</a>
 
     <br>
         <div class="container mt-5">
@@ -16,17 +16,19 @@
                     <th>Año de Lanzamiento</th>
                     <th>Rating</th>
                     <th>Genero</th>
+                    <th>Sinopsis</th>
                     <th>Editar</th>
                     <th>Eliminar</th>                     
                 </tr>
             </thead>
             <tbody>
-                    {% for titulo in object_list %}
+                    {% for titulo in titulos %}
                     <tr>
                     <th>{{titulo.nombre}}</th>
                     <th>{{titulo.ano_lanzamiento}}</th>
                     <th>{{titulo.rating}}</th>
                     <th>{{titulo.genero}}</th>
+                    <th>{{titulo.cuerpo}}</th>
                     <td><a href="{% url 'editar_peliculas' titulo.id %}">Editar</a></td>
                     <td><a href="{% url 'eliminar_peliculas' titulo.id %}">Eliminar</a></td>
                     </tr>
