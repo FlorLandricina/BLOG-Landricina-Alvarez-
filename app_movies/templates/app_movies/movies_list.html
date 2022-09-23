@@ -13,18 +13,21 @@
             <thead >
                 <tr>
                     <th>Titulo</th>
+                    <th>Portada</th>
                     <th>Año de Lanzamiento</th>
                     <th>Rating</th>
                     <th>Genero</th>
                     <th>Sinopsis</th>
                     <th>Editar</th>
-                    <th>Eliminar</th>                     
+                    <th>Eliminar</th>        
+                               
                 </tr>
             </thead>
             <tbody>
-                    {% for titulo in titulos %}
+                   {% for titulo in object_list %}
                     <tr>
                     <th>{{titulo.nombre}}</th>
+                    <th><img src="/media/{{titulo.portada}}" width="100%"></th>
                     <th>{{titulo.ano_lanzamiento}}</th>
                     <th>{{titulo.rating}}</th>
                     <th>{{titulo.genero}}</th>
@@ -33,6 +36,9 @@
                     <td><a href="{% url 'eliminar_peliculas' titulo.id %}">Eliminar</a></td>
                     </tr>
                     {% endfor %}
+
+                               
+
 
                     
 

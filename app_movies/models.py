@@ -10,7 +10,9 @@ class Titulo(models.Model):
     rating = models.ForeignKey('Rating', on_delete=models.CASCADE, null=True)
     genero = models.ForeignKey('Genero', on_delete=models.CASCADE, null=True)
     cuerpo = models.TextField(max_length=1000, null=True)
+    portada= models.ImageField(upload_to = 'post_images', null = True, blank = True)
     
+
     def __str__(self):
         return f"{self.nombre}"
 

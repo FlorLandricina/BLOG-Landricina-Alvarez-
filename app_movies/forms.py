@@ -9,6 +9,9 @@ class TituloFormulario (forms.Form):
     ano_lanzamiento = forms.DateField()
     rating = forms.ModelMultipleChoiceField(queryset=models.Rating.objects.all(), widget=forms.CheckboxSelectMultiple)
     genero = forms.ModelMultipleChoiceField(queryset=models.Genero.objects.all(), widget=forms.CheckboxSelectMultiple)
+    cuerpo = forms.CharField(max_length=4000, widget=forms.Textarea(attrs={"rows": 12}))
+    portada= forms.ImageField()
+
 
 class UserRegisterForm(UserCreationForm):
     username = forms.CharField()

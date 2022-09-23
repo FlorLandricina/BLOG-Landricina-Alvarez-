@@ -24,12 +24,12 @@ class TituloListView(LoginRequiredMixin, ListView):
 
 class TituloCreateView(LoginRequiredMixin, CreateView):
     model = Titulo
-    fields = ['nombre','ano_lanzamiento','rating','genero','cuerpo']
+    fields = ['nombre','ano_lanzamiento','rating','genero','cuerpo','portada']
     success_url = reverse_lazy('peliculas')
 
 class TituloUpdateView(LoginRequiredMixin, UpdateView):
     model = Titulo
-    fields = ['nombre','ano_lanzamiento','rating','genero','cuerpo']
+    fields = ['nombre','ano_lanzamiento','rating','genero','cuerpo','portada']
     success_url = reverse_lazy('peliculas')
 
 class TituloDeleteView(LoginRequiredMixin, DeleteView):
@@ -45,7 +45,7 @@ def buscar(request):
     if request.GET["titulo"]:
         titulo = request.GET["titulo"]
         peliculas = Titulo.objects.filter(nombre__icontains=titulo)
-        return render(request,"app_movies/movies_list.html",{"titulos":peliculas})
+        return render(request,"app_movies/movies_list.html",{"object_list":peliculas})
     else:
         return render(request,"app_movies/movies_list.html",{"titulo":[]})
 
