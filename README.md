@@ -1,5 +1,4 @@
 # BLOG PELICULAS
-
 ## Integrantes
 Florencia Landricina
 Florencia Alvarez
@@ -7,6 +6,8 @@ Florencia Alvarez
 ## Descriptión del Blog
 
 
+## Punto 4: El sistema debe permitir la subida de fotos: avatar o fotos de artículos. Escoger una de las opciones.
+Elegimos la Opción 2: Solo los administradores pueden crear, editar o borrar fotos. (Perfil o fotos de artículos) y Opción 2.1 Fácil: Que solo se pueden cargar imágenes desde el admin de Django.
 
 ## Python
 Version 3.10.4

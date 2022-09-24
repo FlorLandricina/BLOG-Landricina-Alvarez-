@@ -18,18 +18,18 @@ from django import forms
 def inicio(request):
     return render(request, "app_movies/inicio.html")
     
-class TituloListView(LoginRequiredMixin, ListView):
+class TituloListView(ListView):
     model = Titulo
     template_name = 'app_movies/movies_list.html'
 
 class TituloCreateView(LoginRequiredMixin, CreateView):
     model = Titulo
-    fields = ['nombre','ano_lanzamiento','rating','genero','cuerpo','portada']
+    fields = ['nombre','ano_lanzamiento','rating','genero','cuerpo']
     success_url = reverse_lazy('peliculas')
 
 class TituloUpdateView(LoginRequiredMixin, UpdateView):
     model = Titulo
-    fields = ['nombre','ano_lanzamiento','rating','genero','cuerpo','portada']
+    fields = ['nombre','ano_lanzamiento','rating','genero','cuerpo']
     success_url = reverse_lazy('peliculas')
 
 class TituloDeleteView(LoginRequiredMixin, DeleteView):
