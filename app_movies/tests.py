@@ -1,9 +1,9 @@
 import random
 import string
 import datetime
-from django.test import TestCase
-from app_movies.models import Genero
-from app_movies.models import Titulo
+from django.test import TestCase, Client
+from app_movies.models import Genero, Titulo
+from django.urls import reverse
 
 
 # Test 1: Comprobar si se puede crear un el nombre de un genero con letras random
@@ -23,8 +23,18 @@ class GeneroTestCase(TestCase):
 
 
 # Test 2: Una vez realizado el registro, debería llevarnos a la página de inicio
+class BaseTest(TestCase):
+    
+    def setUp(self):
+        self.register_url=reverse('register')
+        return super().setUp()
+
+class RegisterTest(BaseTest):
+    def test_view_page_correctly(self):
+        response=self.client.get(self.register_url)
+        self.assertEqual(response.status_code,200)
+        self.assertTemplateUsed(response, 'app_movies/registro.html')
+
+
 
 # Test 3: Comprobar si se puede crear una fecha de un año de lanzamiento con fecha random
-
-
-
