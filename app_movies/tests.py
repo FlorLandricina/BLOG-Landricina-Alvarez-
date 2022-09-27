@@ -27,6 +27,14 @@ class BaseTest(TestCase):
     
     def setUp(self):
         self.register_url=reverse('register')
+        self.user={
+            'username':'testuser',
+            'email':'testemail@hotmail.com',
+            'last_name':'testlastname',
+            'first_name':'testfirstname',
+            'password1':'pass1',
+            'password2':'pass2'
+        }
         return super().setUp()
 
 class RegisterTest(BaseTest):
@@ -34,7 +42,10 @@ class RegisterTest(BaseTest):
         response=self.client.get(self.register_url)
         self.assertEqual(response.status_code,200)
         self.assertTemplateUsed(response, 'app_movies/registro.html')
-
+    
+    def register_user(self):
+        response=self.post(self.register_url,self.user,format='text/html')
+        self.assertEqual(response.status_code,302)
 
 
 # Test 3: Comprobar si se puede crear una fecha de un año de lanzamiento con fecha random
