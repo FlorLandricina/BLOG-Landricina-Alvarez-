@@ -4,7 +4,10 @@ Florencia Landricina
 Florencia Alvarez
 
 ## Descriptión del Blog
+Creamos un blog de peliculas donde los usuarios puedan consultar sobre ellas, agregar o eliminar titulos y comunicarse con otros usuarios de la comunidad cinematograficos.
 
+## Video donde ver el funcionamiento del Blog
+https://www.loom.com/share/fc50ef02554a4e448933c6bc7e893142
 
 ## Punto 4: El sistema debe permitir la subida de fotos: avatar o fotos de artículos. Escoger una de las opciones.
 Elegimos la Opción 2: Solo los administradores pueden crear, editar o borrar fotos. (Perfil o fotos de artículos) y Opción 2.1 Fácil: Que solo se pueden cargar imágenes desde el admin de Django.
